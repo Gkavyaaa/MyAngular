@@ -1,0 +1,31 @@
+<ng-container *ngIf="taskAllocationData.length > 0">
+    <table  border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>taskId</th>
+                <th>developerId</th>
+                <th>assignedBy</th>
+                <th>assignedAt</th>
+                <th>status</th>
+                <th>Action</th>
+        </thead>
+        <tbody>
+           <ng-container>
+            <tr *ngFor="let datass of taskAllocationData">
+                <td>{{datass.id}}</td>
+                <td>{{datass.task_id}}</td>
+                <td>{{datass.developerid}}</td>
+                <td>{{datass.assignedby}}</td>
+                <td>{{datass.assignedat}}</td>
+                <td>{{datass.status}}</td>
+                <td>
+                    <input type="submit" value="edit" (click)="editData(datass)" />
+                </td>
+            </tr>
+           </ng-container>
+        </tbody>
+      </table>
+</ng-container>
+
+

@@ -1,0 +1,80 @@
+
+<div class="center" >
+    <input type="text" [disabled]="!sales && !payments" (input)="search($event)" placeholder="Search..." >
+    <!-- <input type="submit" (click)="showTable('sale')" value="salesDetails"> -->
+    </div>
+    <!-- <div>
+      <button (click)="resetData()" placeholder="Reset button">Reset</button>
+    </div> -->
+  <br>
+  <br>
+  <div class="align">
+    <button style='margin-right:16px' (click)="showSales()" >Sales</button>
+    <button style='margin-right:16px' (click)="showPayments()">Payments</button>
+    <button style='margin-right:16px' (click)="resetData()" placeholder="Reset button">Reset</button>
+  </div>
+  <br>
+  <br>
+  <ng-container *ngIf="sales">
+  <table class="center" border="1">
+    <thead>
+      <th>SalesId</th>
+      <th>ProductName</th>
+      <th>ProductQuantity</th>
+      <th>ProductMade</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sales of salesDetails ;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{sales.productname}}</td>
+        <td>{{sales.productquantity}}</td>
+        <td>{{sales.productMade}}</td>
+        <td><Button (click)="getSalesDetails(sales)" >Get Details</Button></td>
+      </tr>
+    </tbody>
+  </table>
+  </ng-container>
+  <br>
+  <ng-container *ngIf="salesData">
+    <h3>Selected Sales Details:</h3>
+    <div>productname:{{salesData.productname}}</div>
+    <div>productquantity:{{salesData.productquantity}}</div>
+    <div>productMade:{{salesData.productMade}}</div>
+  </ng-container>
+  <br>
+  
+  <ng-container *ngIf="payments">
+  <table class="center" border="1">
+    <thead>
+      <th>PaymentId</th>
+      <th>Price</th>
+      <th>HolderName</th>
+      <th>HolderMobile</th>
+      <th>status</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payment ;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{payment.Price}}</td>
+        <td>{{payment.HolderName}}</td>
+        <td>{{payment.HolderMobile}}</td>
+        <td>{{payment.status}}</td>
+        <td><button (click)="getPaymentDetails(payment)" values="Get details">Get details</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </ng-container>
+  <ng-container *ngIf="paymentData">
+    <h3>Selected Payment Details:</h3>
+    <div>Price:{{paymentData.Price}}</div>
+    <div>HolderName:{{paymentData.HolderName}}</div>
+    <div>HolderMobile:{{paymentData.HolderMobile}}</div>
+    <div>status:{{paymentData.status}}</div>
+  </ng-container>
+  <table>
+  <thead>
+    <th></th>
+  </thead>
+  </table>
